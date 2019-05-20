@@ -37,7 +37,7 @@ namespace Veeam.GZip
         /// Gets or sets the memory limit.
         /// </summary>
         /// <value>The memory limit.</value>
-        public long MemoryLimit { get; set; } = 500 * 1024 * 1024; // 500 MB
+        public long MemoryLimit { get; set; } = 1024 * 1024 * 1024; // 1 GB
 
         /// <summary>
         /// Froms the arguments.
@@ -47,7 +47,7 @@ namespace Veeam.GZip
         {
             var options = new GZipOptions();
 
-            if (args.Length == 0 || !Enum.TryParse(args[0], out CompressionMode mode))
+            if (args.Length == 0 || !Enum.TryParse(args[0], true, out CompressionMode mode))
                 throw new ArgumentException(string.Empty, nameof(options.Mode));
 
             options.Mode = mode;

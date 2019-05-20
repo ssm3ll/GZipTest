@@ -19,30 +19,25 @@ namespace Veeam.GZipTest
             Console.Clear();
             Console.Title = "GZipTest";
 
-            GZipOptions options = new GZipOptions()
-            {
-                Mode = CompressionMode.Decompress,
-                InputFile = "/Users/ssm3ll/Distr/exelab2018.zip.gz",
-                OutputFile = "/Users/ssm3ll/Distr/exelab2018__.zip"
-            };
+            GZipOptions options;
 
-            //try
-            //{
-            //    // try to read options from file
-            //    options = GZipOptions.FromArgs(args);
-            //}
-            //catch(ArgumentException aex)
-            //{
-            //    Console.WriteLine($"Wrong argument: {aex.ParamName}");
-            //    PrintHelp();
-            //    return 1;
-            //}
-            //catch(Exception ex)
-            //{
-            //    Console.WriteLine($"{ex.Message}");
-            //    PrintHelp();
-            //    return 1;
-            //}
+            try
+            {
+                // try to read options from file
+                options = GZipOptions.FromArgs(args);
+            }
+            catch (ArgumentException aex)
+            {
+                Console.WriteLine($"Wrong argument: {aex.ParamName}");
+                PrintHelp();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+                PrintHelp();
+                return 1;
+            }
 
             // create gZip instance using options
             var gZip = GZipArchive.Create(options);
