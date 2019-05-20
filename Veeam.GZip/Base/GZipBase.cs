@@ -274,10 +274,10 @@ namespace Veeam.GZip.Base
                             _outBuffer.Remove(pos);
                         }
 
+                        pos++;
+
                         // display progress
                         OnProgress(new ProgressEventArgs(pos, _uncompressedFileLength / Options.BufferSize));
-
-                        pos++;
                     }
 
                     // wait for all compress threads to complete the operation (just to be sure)
@@ -314,10 +314,10 @@ namespace Veeam.GZip.Base
                             _outBuffer.Remove(pos);
                         }
 
+                        pos++;
+
                         // display progress
                         OnProgress(new ProgressEventArgs(pos, _uncompressedFileLength / Options.BufferSize));
-
-                        pos++;
                     }
                 }
             }

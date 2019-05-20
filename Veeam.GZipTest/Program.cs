@@ -21,9 +21,9 @@ namespace Veeam.GZipTest
 
             GZipOptions options = new GZipOptions()
             {
-                Mode = CompressionMode.Compress,
-                InputFile = "/Users/ssm3ll/Distr/exelab2018.zip",
-                OutputFile = "/Users/ssm3ll/Distr/exelab2018.zip.gz"
+                Mode = CompressionMode.Decompress,
+                InputFile = "/Users/ssm3ll/Distr/exelab2018.zip.gz",
+                OutputFile = "/Users/ssm3ll/Distr/exelab2018__.zip"
             };
 
             //try

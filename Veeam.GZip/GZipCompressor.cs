@@ -84,8 +84,10 @@ namespace Veeam.GZip
             // set magic2
             fs.Write(BitConverter.GetBytes(ID2), 0, sizeof(int));
 
+            var fileInfo = new FileInfo(Options.InputFile);
+
             // write uncompressed file length from the header
-            fs.Write(BitConverter.GetBytes(Options.BufferSize), 0, sizeof(int));
+            fs.Write(BitConverter.GetBytes(fileInfo.Length), 0, sizeof(long));
 
             // write uncompressed chunks buffer size to header
             fs.Write(BitConverter.GetBytes(Options.BufferSize), 0, sizeof(int));
